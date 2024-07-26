@@ -1,3 +1,5 @@
+import os
+import streamlit as st
 from langchain_google_genai import GoogleGenerativeAI
 from langchain_community.utilities import SQLDatabase
 from langchain_experimental.sql import SQLDatabaseChain
@@ -7,7 +9,6 @@ from langchain.prompts import SemanticSimilarityExampleSelector
 from langchain.chains.sql_database.prompt import PROMPT_SUFFIX, _mysql_prompt
 from langchain.prompts.prompt import PromptTemplate
 from langchain.prompts import FewShotPromptTemplate
-import os
 from few_shots import few_shots
 from dotenv import load_dotenv
 
@@ -49,3 +50,15 @@ def get_few_shot_db_chain():
 if __name__ == "__main__":
     chain = get_few_shot_db_chain()
     print(chain.run("How many total t shirts are left in total in stock?"))
+
+
+# streamlit
+
+st.title("AtliQ T Shirts: Database Q&A 👕")
+
+question = st.text_input("Question: ")
+if question:
+    chain = get_few_shot_db_chain()
+    answer = chain.run(question)
+    st.header("Answer: ")
+    st.write(answer)
