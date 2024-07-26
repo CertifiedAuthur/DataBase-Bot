@@ -22,6 +22,7 @@ Use of SQLAlchemy for database interaction and LangChain for NLP tasks.
 ##### Installation
 Clone the repository:
 git clone https://github.com/CertifiedAuthur/database-tshirts-bot.git
+
 cd database-tshirts-bot
 
 ###### Create and activate a virtual environment:
