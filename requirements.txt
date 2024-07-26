@@ -11,3 +11,4 @@ sentence-transformers
 chromadb
 google-generativeai
 google-ai-generativelanguage
+langchain_google_genai
